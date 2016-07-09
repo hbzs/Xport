@@ -264,8 +264,12 @@ var runExportScript = function() {
 
 			for (var i = 0; i<numSuffixes; i++) {
 				suffix = suffixes[i]
-				atSuffix = (suffix == '1x') ? "" : "@"+suffix
-				finalFileName = fileName + atSuffix + ".png"
+				if (suffix == '1x') {
+					finalFileName = fileName + ".pdf"
+				} else {
+					atSuffix = "@"+suffix
+					finalFileName = fileName + atSuffix + ".png"
+				}
 				filePath = imageSetPath + "/" + finalFileName
 
 				log("Save image to: " + filePath)
@@ -273,10 +277,18 @@ var runExportScript = function() {
 				// export based on original scale
 				exportLayerToPath(layer, filePath, parseFloat(suffix)/originalScale)
 
-				imageObj = {
-					idiom : "universal",
-					scale : suffix,
-					filename : finalFileName
+
+				if (suffix == '1x') {
+					imageObj = {
+						idiom : "universal",
+						filename : finalFileName
+					}
+				} else {
+					imageObj = {
+						idiom : "universal",
+						scale : suffix,
+						filename : finalFileName
+					}
 				}
 				imagesArray.push(imageObj)
 			}

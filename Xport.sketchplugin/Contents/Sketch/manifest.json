@@ -18,7 +18,7 @@
   ],
   "bundleVersion" : 1,
   "identifier" : "com.silverux.sketchplugins.xport",
-  "version" : "1.0",
+  "version" : "1.0.1",
   "homepage" : "https:\/\/github.com\/abynim\/Xport",
   "description" : "Export Sketch layers directly to Xcode.",
   "menu" : {
